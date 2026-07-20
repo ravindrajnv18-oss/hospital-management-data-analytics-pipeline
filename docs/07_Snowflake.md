@@ -175,34 +175,21 @@ Snowflake RAW Tables
 ✔ Tables
 
 ---
+# SQL Scripts
 
-# Screenshots
+The complete Snowflake implementation is available in the `sql/` directory.
 
-Warehouse
+```text
+sql/
+├── 01_Create_Warehouse.sql
+├── 02_Create_Database.sql
+├── 03_Create_Schemas.sql
+├── 04_Create_RAW_Tables.sql
+├── 05_Create_STAGING_Tables.sql
+├── 06_Create_CURATED_Tables.sql
+├── 07_Data_Transformation.sql
+└── 08_Data_Validation.sql
 
-```
-../screenshots/snowflake/create-warehouse.png
-```
-
-Database
-
-```
-../screenshots/snowflake/database.png
-```
-
-Schemas
-
-```
-../screenshots/snowflake/schemas.png
-```
-
-Tables
-
-```
-../screenshots/snowflake/tables.png
-```
-
----
 
 # Real Project Notes
 
