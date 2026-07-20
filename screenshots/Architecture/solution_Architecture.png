@@ -1,0 +1,67 @@
+                                        ┌───────────────────────────┐
+                                        │   Hospital CSV Files      │
+                                        │                           │
+                                        │ patients.csv              │
+                                        │ doctors.csv               │
+                                        │ appointments.csv          │
+                                        │ billing.csv               │
+                                        │ treatments.csv            │
+                                        └─────────────┬─────────────┘
+                                                      │
+                                                      ▼
+                           ┌─────────────────────────────────────────────┐
+                           │ Azure Data Lake Storage Gen2 (ADLS Gen2)    │
+                           │                                             │
+                           │ Storage Account: sthospitalravindra01       │
+                           │ Container: hospital-data                    │
+                           └─────────────┬───────────────────────────────┘
+                                         │
+                                         │ LS_ADLS_Hospital
+                                         │ (Account Key)
+                                         ▼
+                     ┌────────────────────────────────────────────────────┐
+                     │ Azure Data Factory (adfhospitalravindra01)         │
+                     │                                                    │
+                     │ Pipeline: PL_Load_Hospital_Data                    │
+                     │                                                    │
+                     │ • Copy_Patients                                   │
+                     │ • Copy_Doctors                                    │
+                     │ • Copy_Appointments                               │
+                     │ • Copy_Billing                                    │
+                     │ • Copy_Treatments                                 │
+                     └──────────────┬─────────────────────────────────────┘
+                                    │
+                                    │ Blob Staging
+                                    │ LS_BLOB_STAGING
+                                    │ (SAS URI)
+                                    ▼
+                      ┌───────────────────────────────────────┐
+                      │ Azure Blob Storage                    │
+                      │ Temporary Staging Area                │
+                      └──────────────┬────────────────────────┘
+                                     │
+                                     │ LS_SNOWFLAKE_HOSPITAL
+                                     │ (Basic Authentication)
+                                     ▼
+                ┌───────────────────────────────────────────────────────┐
+                │                  Snowflake                            │
+                │                                                       │
+                │ Warehouse : HOSPITAL_WH                               │
+                │ Database  : HOSPITAL_DB                               │
+                │                                                       │
+                │ Schemas                                               │
+                │   ├── RAW                                             │
+                │   ├── STAGING                                         │
+                │   └── CURATED                                         │
+                └──────────────┬────────────────────────────────────────┘
+                               │
+                               ▼
+                  ┌──────────────────────────────────────┐
+                  │          Power BI Desktop            │
+                  │                                      │
+                  │ Interactive Dashboard                │
+                  │ • KPIs                               │
+                  │ • Charts                             │
+                  │ • Slicers                            │
+                  │ • Business Insights                  │
+                  └──────────────────────────────────────┘
