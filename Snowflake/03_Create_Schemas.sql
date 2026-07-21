@@ -1,0 +1,9 @@
+/*============================================================
+ Step : Create Schemas
+=============================================================*/
+
+CREATE SCHEMA IF NOT EXISTS RAW;
+
+CREATE SCHEMA IF NOT EXISTS STAGING;
+
+CREATE SCHEMA IF NOT EXISTS CURATED;
