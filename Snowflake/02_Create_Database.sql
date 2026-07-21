@@ -1,0 +1,6 @@
+    --create database--
+    
+    USE WAREHOUSE HOSPITAL_WH;
+    
+    CREATE DATABASE HOSPITAL_DB;
+    USE DATABASE HOSPITAL_DB;
